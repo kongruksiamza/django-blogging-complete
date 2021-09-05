@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        {% load static %}
+        <title>Register / Login System</title>
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+
+        <link rel="stylesheet" href="{% static 'backend/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'backend/css/plugins.css' %}">
+        <link rel="stylesheet" href="{% static 'backend/css/main.css' %}">
+
+        <!-- Include a specific file here from css/themes/ folder to alter the default theme of the template -->
+
+        <!-- The themes stylesheet of this template (for using specific theme color in individual elements - must included last) -->
+        <link rel="stylesheet" href="{% static 'backend/css/themes.css' %}">
+        <!-- END Stylesheets -->
+
+        <!-- Modernizr (browser feature detection library) -->
+        <script src="{% static 'backend/js/vendor/modernizr.min.js' %}"></script>
+    </head>
+    <body>
+        <!-- Login Alternative Row -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-md-offset-1">
+                    <div id="login-alt-container">
+                        <!-- Title -->
+                        <h1 class="push-top-bottom">
+                            <i class="gi gi-flash"></i> <strong>สมัครเป็นนักเขียน</strong><br>
+                            <small>มาแชร์บทความ โดยการสมัครนักเขียนกับเราได้ที่นี่!</small>
+                        </h1>
+                        <!-- END Title -->
+
+                        <!-- Key Features -->
+                        <ul class="fa-ul text-muted">
+                            <li><i class="fa fa-check fa-li text-success"></i> สมัครเป็นนักเขียน</li>
+                            <li><i class="fa fa-check fa-li text-success"></i> เขียนบทความของคุณ</li>
+                            <li><i class="fa fa-check fa-li text-success"></i> แชร์บทความของคุณ</li>
+                        </ul>
+                        <!-- END Key Features -->
+
+                        <!-- Footer -->
+                        <footer class="text-muted push-top-bottom">
+                            <small> &copy; <a href="#" target="_blank">Django Framework | KongRuksiam</Frame></a></small>
+                        </footer>
+                        <!-- END Footer -->
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <!-- Login Container -->
+                    <div id="login-container">
+                        <!-- Login Title -->
+                        <div class="login-title text-center">
+                            <h1><strong>Login</strong> or <strong>Register</strong></h1>
+                        </div>
+                        <!-- END Login Title -->
+
+                        <!-- Login Block -->
+                        <div class="block push-bit">
+                            <!-- Login Form -->
+                            <form action="{% url 'login' %}" method="post" id="form-login" class="form-horizontal">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                                            <input type="text" id="username" name="username" class="form-control input-lg" placeholder="Username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                            <input type="password" id="login-password" name="password" class="form-control input-lg" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-actions">
+                                    <div class="col-xs-6">
+                                        {% for message in messages%}
+                                            <p style="color: red;">{{message}}</p>
+                                        {% endfor%}
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i> Login to Dashboard</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                        <a href="javascript:void(0)" id="link-register-login"><small>Create a new account</small></a>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Login Form -->
+                            <!-- Register Form -->
+                            <form action="{% url 'addUser' %}" method="post" id="form-register" class="form-horizontal display-none">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                                            <input type="text" id="register-firstname" name="username" class="form-control input-lg" placeholder="Username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                            <input type="text" id="register-email" name="email" class="form-control input-lg" placeholder="Email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                            <input type="password" id="register-password" name="password" class="form-control input-lg" placeholder="Password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                            <input type="password" id="repassword" name="repassword" class="form-control input-lg" placeholder="Re-Password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-actions">
+                                    <div class="col-xs-6">
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-plus"></i> Register Account</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12 text-center">
+                                        <small>Do you have an account?</small> <a href="javascript:void(0)" id="link-register"><small>Login</small></a>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END Register Form -->
+                        </div>
+                        <!-- END Login Block -->
+                    </div>
+                    <!-- END Login Container -->
+                </div>
+            </div>
+        </div>
+        <!-- END Login Alternative Row -->
+        <!-- jQuery, Bootstrap.js, jQuery plugins and Custom JS code -->
+        <script src="{% static 'backend/js/vendor/jquery.min.js' %}"></script>
+        <script src="{% static 'backend/js/vendor/bootstrap.min.js' %}"></script>
+        <script src="{% static 'backend/js/plugins.js' %}"></script>
+        <script src="{% static 'backend/js/app.js' %}"></script>
+
+        <!-- Load and execute javascript code used only in this page -->
+        <script src="{% static 'backend/js/pages/login.js' %}"></script>
+        <script>$(function(){ Login.init(); });</script>
+    </body>
+</html>

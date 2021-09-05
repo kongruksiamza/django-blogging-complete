@@ -1,0 +1,58 @@
+{% extends "backend/layout.html" %}
+
+{%block header%}
+<script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+{% endblock%}
+{% block content%}
+<div class="block">
+    <!-- Basic Form Elements Title -->
+    <div class="block-title">
+        <h2><strong>เพิ่มบทความของคุณ</strong></h2>
+    </div>
+    <!-- END Form Elements Title -->
+    <!-- Basic Form Elements Content -->
+    {% for message in messages%}
+        <p style="color: red;">{{message}}</p>
+    {% endfor %}
+
+    <form action="{% url 'insertData' %}" method="post" enctype="multipart/form-data" class="form-horizontal form-bordered" >
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="col-md-6">
+                <input type="text" id="name" name="name" class="form-control" placeholder="ชื่อบทความ">
+            </div>
+            <div class="col-md-6">
+                <select name="category" class="select-chosen" style="width: 250px;">
+                    {% for category in categories %}
+                        <option value="{{category.id}}">{{category.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <textarea type="text" name="description" rows="2" class="form-control" placeholder="รายละเอียดบทความ"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <textarea type="text" name="content" rows="5" class="form-control" placeholder="เนื้อหาบทความ"></textarea>
+            </div>
+        </div>
+        <script>
+            CKEDITOR.replace('content');
+        </script>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="file" name="image" class="form-control" placeholder="ภาพปก">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-angle-right"></i>บันทึก</button>
+            </div>
+        </div>
+    </form>
+    <!-- END Basic Form Elements Content -->
+</div>
+{% endblock %}
