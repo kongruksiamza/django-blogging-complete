@@ -1,6 +1,6 @@
 # 📖 เอกสารประกอบการสอน
-- [เอกสารประกอบการสอน  (Template) ](https://mega.nz/file/SHpnUb4K#1BQFOLFJ_ZJXsbB57Q0Oo-_ArEz5VYvx8BJpkyBsfAw)
-- [เอกสารประกอบการสอน (PDF)](https://mega.nz/file/fLgzTQ5K#xs8z4tuRFCk5qQSGa0-XfVFMjnc-_-9jwCec0Y8I668)
+- [เอกสารประกอบการสอน  (Template) ](https://github.com/kongruksiamza/django-blogging-complete/blob/ece530237dd55ddc22d8436a5fe20cb0624bb827/%E0%B9%80%E0%B8%AD%E0%B8%81%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%AD%E0%B8%9A%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%AA%E0%B8%AD%E0%B8%99.zip)
+- [เอกสารประกอบการสอน (PDF)](https://github.com/kongruksiamza/python-udemy-course/blob/288ddde2301212eb049747f93bca5f2b5eedff8f/%E0%B9%80%E0%B8%AD%E0%B8%81%E0%B8%AA%E0%B8%B2%E0%B8%A3%20Python%20(Real-World)/Django%20Framework%20Blogging%20System.pdf)
 
 ## 🎓 คอร์สเรียนที่น่าสนใจ
 - [พัฒนาเว็บด้วย Django Framework 4.x](https://www.udemy.com/course/django-framework-real-world-projects/?referralCode=63ED08A516BE8C4A93F7)
